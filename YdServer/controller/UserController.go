@@ -2,6 +2,7 @@ package controller
 
 import (
 	R "../../YdStruct/base"
+	T "../../YdStruct/entity"
 	"../../YdWork/network"
 	Util "../../YdWork/util"
 	"../service"
@@ -39,7 +40,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	//生成token
 	token := Util.CreateToken(string(user.LId), strMac)
 
-	userData := service.UserData{}
+	userData := T.UserData{}
 	userData.User.LId = user.LId
 	userData.User.StrName = user.StrName
 	userData.Token = token
@@ -67,7 +68,7 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		hc.ReturnMsg(R.ErrorMsg("用户已存在"))
 		return
 	}
-	user := service.User{}
+	user := T.User{}
 	user.StrName = strName
 	user.StrPwd = Util.GetMd5(Util.DesEncode(strPwd))
 	ret := service.SaveUser(user)
@@ -80,7 +81,7 @@ func Register(w http.ResponseWriter, r *http.Request) {
 	//生成token
 	token := Util.CreateToken(strconv.FormatInt(user.LId, 10), strMac)
 
-	userData := service.UserData{}
+	userData := T.UserData{}
 	userData.User.LId = user.LId
 	userData.User.StrName = user.StrName
 	userData.Token = token
