@@ -2,17 +2,17 @@ package entity
 
 //定义用户结构体
 type User struct {
-	LId          int64  `db:"lId" json:"lId"`
-	StrName      string `db:"strName" json:"strName"`
-	StrPwd       string `db:"strPwd" json:"-"` //json格式化的时候不返回
-	StrRealName  string `db:"strRealName" json:"strRealName"`
-	StrIdCardNo  string `db:"strIdCardNo" json:"strIdCardNo"`
-	NAuthStatus  int    `db:"nAuthStatus" json:"nAuthStatus"`
-	StrMobile    string `db:"strMobile" json:"strMobile"`
-	StrEmail     string `db:"strEmail" json:"strEmail"`
-	DtUpdateTime string `db:"dtUpdateTime" json:"dtUpdateTime"`
-	DtCreateTime string `db:"dtCreateTime" json:"dtCreateTime"`
-	NDeleted     int    `db:"nDeleted" json:"-"`
+	Id         int64  `db:"id" json:"id"`
+	Name       string `db:"name" json:"name"`
+	Password   string `db:"password" json:"-"` //json格式化的时候不返回
+	RealName   string `db:"realName" json:"realName"`
+	IdCard     string `db:"idCard" json:"idCard"`
+	AuthStatus int    `db:"authStatus" json:"authStatus"`
+	Mobile     string `db:"mobile" json:"mobile"`
+	Email      string `db:"email" json:"email"`
+	UpdateTime string `db:"updateTime" json:"updateTime"`
+	CreateTime string `db:"createTime" json:"createTime"`
+	Deleted    int    `db:"deleted" json:"-"`
 }
 
 type UserData struct {
